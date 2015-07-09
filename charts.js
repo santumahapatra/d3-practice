@@ -88,3 +88,21 @@ var labels = svg.selectAll("text")
     }
   }
 });
+
+h = 350;
+w = 400;
+
+svg = d3.select("body").append("svg").attr({
+  width: w, height: h
+});
+
+var dots = svg.selectAll("circle")
+.data(monthlySales)
+.enter()
+.append("circle")
+.attr({
+  cx: function(d) { return d.month * 3; },
+  cy: function(d) { return h - d.sales; },
+  r: 5,
+  "fill": "#666666"
+});
